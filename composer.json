@@ -1,29 +1,38 @@
 {
-    "name": "sietse85/nova-button",
-    "description": "A Laravel Nova field.",
-    "keywords": [
-        "laravel",
-        "nova"
-    ],
-    "license": "MIT",
-    "require": {
-        "php": "^7.3|^8.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Sietse85\\NovaButton\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Sietse85\\NovaButton\\FieldServiceProvider"
-            ]
-        }
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+  "name": "sietse85/nova-button",
+  "description": "Clickable Button Field for Nova 4",
+  "authors": [
+    {
+      "name": "Sietse Sietsma",
+      "email": "sietse85@gmail.com"
+    }
+  ],
+  "keywords": [
+    "laravel",
+    "nova",
+    "button",
+    "nova4",
+    "field"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^7.3|^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sietse85\\NovaButton\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Sietse85\\NovaButton\\FieldServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
