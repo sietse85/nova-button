@@ -4,7 +4,7 @@ namespace Sietse85\NovaButton;
 
 use Laravel\Nova\Fields\Field;
 
-class NovaButton extends Field
+class Button extends Field
 {
     public $component = 'nova-button';
 
