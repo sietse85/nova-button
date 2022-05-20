@@ -20,7 +20,7 @@
           :class="field.classes"
           :disabled="field.disabled"
           v-html="field.text"
-          @click="openModal = true"
+          @click.prevent.stop="openModal = true"
         />
 
         <portal to="modals">
@@ -41,7 +41,7 @@
                     style="order: 2"
                     class="cursor-pointer btn text-80 font-normal px-3 mr-3 btn-link"
                     v-html="field.confirm.cancelButtonText"
-                    @click.prevent="openModal = false"
+                    @click.prevent.stop="openModal = false"
                   />
 
                   <nova-button v-bind="$props" :disabled="field.disabled" @finished="modalReload" />
