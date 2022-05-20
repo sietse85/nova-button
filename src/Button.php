@@ -94,7 +94,6 @@ class Button extends Field
     protected function addDefaultSettings(): void
     {
         $this->addLinkFallbacks();
-
         $this->style = Arr::get($this->config, 'defaults.style', 'link-primary');
         $this->loadingText = Arr::get($this->config, 'defaults.loadingText', 'Loading');
         $this->loadingStyle = Arr::get($this->config, 'defaults.loadingStyle', str_replace('primary', 'grey', $this->style));
@@ -102,6 +101,7 @@ class Button extends Field
         $this->errorStyle = Arr::get($this->config, 'defaults.errorStyle', str_replace('primary', 'danger', $this->style));
         $this->successText = Arr::get($this->config, 'defaults.successText', 'Success!');
         $this->successStyle = Arr::get($this->config, 'defaults.successStyle', str_replace('primary', 'success', $this->style));
+
     }
 
     /**
@@ -112,19 +112,19 @@ class Button extends Field
     protected function addLinkFallbacks(): void
     {
         if (!Arr::has($this->config, 'styles.link-primary')) {
-            $this->config['styles']['link-primary'] = 'cursor-pointer dim inline-block text-primary font-bold no-underline';
+            $this->config['styles']['link-primary'] = 'cursor-pointer inline-block text-gray-50 text-black font-bold';
         }
 
         if (!Arr::has($this->config, 'styles.link-success')) {
-            $this->config['styles']['link-success'] = 'cursor-pointer dim inline-block text-success font-bold no-underline';
+            $this->config['styles']['link-success'] = 'cursor-pointer inline-block text-green-500 font-bold';
         }
 
         if (!Arr::has($this->config, 'styles.link-grey')) {
-            $this->config['styles']['link-grey'] = 'cursor-pointer dim inline-block text-grey font-bold no-underline';
+            $this->config['styles']['link-grey'] = 'cursor-pointer inline-block text-grey-500 font-bold';
         }
 
         if (!Arr::has($this->config, 'styles.link-danger')) {
-            $this->config['styles']['link-danger'] = 'cursor-pointer dim inline-block text-danger font-bold no-underline';
+            $this->config['styles']['link-danger'] = 'cursor-pointer inline-block text-red-500 font-bold';
         }
     }
 

@@ -1,6 +1,6 @@
 {
     "private": true,
-    "version": "1.0.3",
+    "version": "1.0.4",
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
@@ -16,8 +16,8 @@
         "version": "auto-changelog -p && git add CHANGELOG.md && composer update"
     },
     "devDependencies": {
-        "auto-changelog": "^2.4.0",
         "@vue/compiler-sfc": "^3.2.22",
+        "auto-changelog": "^2.4.0",
         "eslint-config-prettier": "^8.4.0",
         "eslint-plugin-vue": "^8.7.1",
         "form-backend-validation": "^2.3.3",

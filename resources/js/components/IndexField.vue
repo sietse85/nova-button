@@ -19,50 +19,27 @@
         :class="field.classes"
         :disabled="field.disabled"
         v-html="field.text"
-        @click.prevent.stop="openModal = true"
+        @click.stop="isModalOpen = true"
       />
 
-      <portal to="modals" v-if="openModal">
-        <transition name="fade">
-          <modal @modal-close="openModal = false">
-            <form class="bg-white rounded-lg shadow-lg overflow-hidden" style="width: 460px">
-              <div class="p-8">
-                <heading :level="2" class="mb-6" v-html="field.confirm.title"></heading>
-
-                <p class="text-80 leading-normal" v-html="field.confirm.body"></p>
-              </div>
-
-              <div
-                class="border-t border-50 px-6 py-3 ml-auto flex items-center"
-                style="min-height: 70px; flex-direction: row-reverse"
-              >
-                <button
-                  style="order: 2"
-                  class="cursor-pointer btn text-80 font-normal px-3 mr-3 btn-link"
-                  v-html="field.confirm.cancelButtonText"
-                  @click.prevent.stop="openModal = false"
-                />
-
-                <nova-button
-                  :field="field"
-                  @finished="modalReload"
-                  :resourceName="resourceName"
-                  :resourceId="resource.id.value"
-                  :disabled="field.disabled"
-                />
-              </div>
-            </form>
-          </modal>
-        </transition>
-      </portal>
+      <confirm-modal
+        v-if="isModalOpen"
+        :field="field"
+        :resource-name="resourceName"
+        :resource="resource"
+        @finished="modalReload"
+      ></confirm-modal>
     </div>
   </div>
 </template>
 
 <script>
 import field from '../../field';
+import NovaButton from './NovaButton';
+import ConfirmModal from './ConfirmModal';
 
 export default {
+  components: { ConfirmModal, NovaButton },
   props: ['resource', 'resourceName', 'field'],
   mixins: [field],
 };

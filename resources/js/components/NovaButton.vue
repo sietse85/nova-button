@@ -81,7 +81,6 @@ export default {
       this.$emit('loading');
 
       if (this.resourceName === undefined || this.resourceId === null || this.field.key === null) {
-        alert('epty')
         return;
       }
 
