@@ -13,7 +13,7 @@
         "check-format": "prettier --list-different './resources/**/*.{js,vue}'",
         "format": "prettier --write './resources/**/*.{js,vue}'",
         "lint": "eslint resources/js --fix --ext js,vue",
-        "version": "./bin/sync-versions.sh && auto-changelog -p && git add CHANGELOG.md && composer update"
+        "version": "auto-changelog -p && git add CHANGELOG.md && composer update"
     },
     "devDependencies": {
         "auto-changelog": "^2.4.0",
