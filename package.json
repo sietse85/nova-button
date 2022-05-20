@@ -1,23 +1,38 @@
 {
-  "private": true,
-  "scripts": {
-    "dev": "npm run development",
-    "development": "mix",
-    "watch": "mix watch",
-    "watch-poll": "mix watch -- --watch-options-poll=1000",
-    "hot": "mix watch --hot",
-    "prod": "npm run production",
-    "production": "mix --production",
-    "nova:install": "npm --prefix='../../vendor/laravel/nova' ci"
-  },
-  "devDependencies": {
-    "@vue/compiler-sfc": "^3.2.22",
-    "form-backend-validation": "^2.3.3",
-    "laravel-mix": "^6.0.41",
-    "laravel-nova": "^1.12.3",
-    "lodash": "^4.17.21",
-    "postcss": "^8.3.11",
-    "vue-loader": "^16.8.3"
-  },
-  "dependencies": {}
+    "private": true,
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production",
+        "nova:install": "npm --prefix='../../vendor/laravel/nova' ci",
+        "check-format": "prettier --list-different './resources/**/*.{js,vue}'",
+        "format": "prettier --write './resources/**/*.{js,vue}'",
+        "lint": "eslint resources/js --fix --ext js,vue",
+        "version": "./bin/sync-versions.sh && auto-changelog -p && git add CHANGELOG.md && composer update"
+    },
+    "devDependencies": {
+        "auto-changelog": "^2.4.0",
+        "@vue/compiler-sfc": "^3.2.22",
+        "eslint-config-prettier": "^8.4.0",
+        "eslint-plugin-vue": "^8.7.1",
+        "form-backend-validation": "^2.3.3",
+        "laravel-mix": "^6.0.41",
+        "laravel-nova": "^1.12.3",
+        "lodash": "^4.17.21",
+        "postcss": "^8.3.11",
+        "prettier": "^2.5.1",
+        "vue-loader": "^16.8.3"
+    },
+    "dependencies": {
+        "vue": "^3.0"
+    },
+    "name": "nova-button",
+    "repository": "git@github.com:sietse85/nova-button",
+    "author": "Sietse Sietsma <sietse85@gmail.com>",
+    "license": "MIT"
 }
