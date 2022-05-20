@@ -1,6 +1,6 @@
 {
     "name": "sietse85/nova-button",
-    "description": "A Laravel Nova package for adding buttons to your resources.",
+    "description": "(Nova 4+) A Laravel Nova package for adding buttons to your resources.",
     "authors": [
         {
             "name": "Sietse Sietsma",
