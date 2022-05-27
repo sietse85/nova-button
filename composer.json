@@ -22,7 +22,7 @@
         "nova4",
         "field"
     ],
-    "version": "1.0.4",
+    "version": "1.0.5",
     "license": "MIT",
     "require": {
         "php": "^7.4|^8.0",
@@ -40,6 +40,12 @@
             ]
         }
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
     "config": {
         "sort-packages": true
     },
