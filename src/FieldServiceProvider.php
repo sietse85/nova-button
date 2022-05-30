@@ -32,11 +32,6 @@ class FieldServiceProvider extends ServiceProvider
      */
     protected function routes()
     {
-        $a = 'foo' . 'bar';
-
-
-        $b = 'foobar';
-
         if ($this->app->routesAreCached()) {
             return;
         }
