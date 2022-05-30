@@ -32,6 +32,11 @@ class FieldServiceProvider extends ServiceProvider
      */
     protected function routes()
     {
+        $a = 'foo' . 'bar';
+
+
+        $b = 'foobar';
+
         if ($this->app->routesAreCached()) {
             return;
         }
@@ -40,6 +45,7 @@ class FieldServiceProvider extends ServiceProvider
             ->prefix('nova-vendor/sietse85/nova-button')
             ->group(__DIR__.'/../routes/api.php');
     }
+
     /**
      * Register any application services.
      *
@@ -47,6 +53,12 @@ class FieldServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/' => config_path(),
+            ], 'config');
+        }
+
         $this->mergeConfigFrom(__DIR__ . '/../config/nova-button.php', 'nova-button');
     }
 }
