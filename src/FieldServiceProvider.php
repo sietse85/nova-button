@@ -5,7 +5,7 @@ namespace Sietse85\NovaButton;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;
-use Laravel\Nova\Http\Middleware\Authorize;
+use Laravel\Nova\Http\Middleware\Authenticate;
 use Laravel\Nova\Nova;
 
 class FieldServiceProvider extends ServiceProvider
@@ -36,7 +36,7 @@ class FieldServiceProvider extends ServiceProvider
             return;
         }
 
-        Route::middleware(['nova', Authorize::class])
+        Route::middleware(['nova', Authenticate::class])
             ->prefix('nova-vendor/sietse85/nova-button')
             ->group(__DIR__.'/../routes/api.php');
     }
