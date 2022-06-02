@@ -16,27 +16,27 @@ class Button extends Field
 
     public $showOnCreation = false;
 
-    public string|null $text = null;
+    public ?string $text = null;
 
-    public string|null $key = null;
+    public ?string $key = null;
 
     public array $config = [];
 
-    public string|null $style = null;
+    public ?string $style = null;
 
-    public string|null $loadingText = null;
+    public ?string $loadingText = null;
 
-    public string|null $loadingStyle = null;
+    public ?string $loadingStyle = null;
 
-    public string|null $successText = null;
+    public ?string $successText = null;
 
-    public string|null $successStyle = null;
+    public ?string $successStyle = null;
 
-    public string|null $errorText = null;
+    public ?string $errorText = null;
 
-    public string|null $errorStyle = null;
+    public ?string $errorStyle = null;
 
-    public array|null $confirm = null;
+    public ?array $confirm = null;
 
     public bool $reload = false;
 
@@ -46,27 +46,27 @@ class Button extends Field
 
     public bool $disabled = false;
 
-    public string|null $title = null;
+    public ?string $title = null;
 
-    public string|null $label = null;
+    public ?string $label = null;
 
-    public string|null $indexName = null;
+    public ?string $indexName = null;
 
     public array $classes = [];
 
-    public string|null $type = null;
+    public ?string $type = null;
 
-    public array|null $route = null;
+    public ?array $route = null;
 
-    public array|null $link = null;
+    public ?array $link = null;
 
     public string $indexAlign = 'left';
 
-    public string|null $loadingClasses = null;
+    public ?string $loadingClasses = null;
 
-    public string|null $successClasses = null;
+    public ?string $successClasses = null;
 
-    public string|null $errorClasses = null;
+    public ?string $errorClasses = null;
 
     /**
      * Create a new field.
@@ -132,7 +132,7 @@ class Button extends Field
      * Resolve the field's value.
      *
      * @param mixed $resource
-     * @param string|null $attribute
+     * @param ?string $attribute
      * @return void
      */
     public function resolve($resource, $attribute = null): void
@@ -173,9 +173,9 @@ class Button extends Field
     /**
      * Enable the confirmation button type.
      *
-     * @param string|null $message1
-     * @param string|null $message2
-     * @param string|null $cancelButtonText
+     * @param ?string $message1
+     * @param ?string $message2
+     * @param ?string $cancelButtonText
      * @return $this
      */
     public function confirm(?string $message1 = null, ?string $message2 = null, ?string $cancelButtonText = null): self
@@ -318,7 +318,7 @@ class Button extends Field
     /**
      * Set the index name.
      *
-     * @param string|null $indexName
+     * @param ?string $indexName
      * @return $this
      */
     public function indexName(?string $indexName = null): self
