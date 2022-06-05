@@ -32,6 +32,7 @@ import {queue} from '../queue.js';
 export default {
   props: ['resource', 'resourceName', 'resourceId', 'field', 'ajaxClasses', 'disabled'],
   data: () => ({
+    toasted: require('vue-toasted').default,
     buttonWidth: null,
     loading: false,
     success: false,
@@ -99,7 +100,14 @@ export default {
           resourceId: this.resourceId,
           model: this.field.model
         }
-      );
+      ).then((response) => {
+        const data = response.data;
+        if (data.hasOwnProperty('message')) {
+          Nova.$toasted.success(response.data.message);
+        } else if (data.hasOwnProperty('danger')) {
+          Nova.$toasted.error(response.data.danger);
+        }
+      });
     },
     post() {
       this.$emit('loading');

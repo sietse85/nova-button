@@ -4,18 +4,10 @@ namespace Sietse85\NovaButton\Http\Controllers;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Illuminate\Routing\Route;
-use Illuminate\Support\Collection;
-use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
-use Laravel\Nova\Fields\ResolvedFields;
-use Laravel\Nova\Http\Requests\ActionRequest;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Actions\DispatchAction;
 
 class ButtonController extends Controller
 {
@@ -39,9 +31,9 @@ class ButtonController extends Controller
      * Trigger action
      *
      * @param NovaRequest $request
-     * @return JsonResponse
+     * @return mixed
      */
-    public function triggerAction(NovaRequest $request): JsonResponse
+    public function triggerAction(NovaRequest $request): mixed
     {
         $actionClass = $request->get('actionClass');
         $resourceId = $request->get('resourceId');
@@ -50,8 +42,7 @@ class ButtonController extends Controller
 
         $action = new $actionClass;
         $actionFields = new ActionFields(collect(), collect());
-        $action->handle($actionFields, collect($result));
 
-        return new JsonResponse([], 200);
+        return $action->handle($actionFields, collect([$result]));
     }
 }
