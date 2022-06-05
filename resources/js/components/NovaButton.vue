@@ -27,7 +27,7 @@
 </style>
 
 <script>
-import { queue } from '../queue.js';
+import {queue} from '../queue.js';
 
 export default {
   props: ['resource', 'resourceName', 'resourceId', 'field', 'ajaxClasses', 'disabled'],
@@ -53,7 +53,11 @@ export default {
       this.$emit('clicked');
 
       try {
-        await this.post();
+        if (this.field.action === null) {
+          await this.post();
+        } else {
+          await this.action();
+        }
 
         this.success = true;
         this.loading = false;
@@ -77,6 +81,26 @@ export default {
         this.$emit('finished');
       }
     },
+    action() {
+      this.$emit('loading');
+
+      if (this.resourceName === undefined || this.resourceId === null || this.field.key === null) {
+        return;
+      }
+
+      window.setTimeout(() => {
+        this.loading = true;
+      }, 200);
+
+      return Nova.request().post(
+        `/nova-vendor/sietse85/nova-button/action`,
+        {
+          actionClass: this.field.action,
+          resourceId: this.resourceId,
+          model: this.field.model
+        }
+      );
+    },
     post() {
       this.$emit('loading');
 
@@ -90,7 +114,7 @@ export default {
 
       return Nova.request().post(
         `/nova-vendor/sietse85/nova-button/${this.resourceName}/${this.resourceId}/${this.field.key}`,
-        { event: this.field.event }
+        {event: this.field.event}
       );
     },
     navigate() {

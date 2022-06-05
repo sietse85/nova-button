@@ -53,6 +53,7 @@ public function fields(Request $request)
 
 * [Confirm](#confirm)
 * [Reload](#reload)
+* [Action](#action)
 * [Events](#events)
 * [Texts](#texts)
 * [State](#state)
@@ -85,6 +86,17 @@ Button::make('Notify')->reload()
 If you click multiple buttons, reloading will wait for all buttons to finish.
 
 If an error occurs, the page will not be reloaded.
+
+### Action
+
+You can trigger an action now. No ActionFields can be used. Will trigger for current resource only. Handle will be called immediately.
+
+```php
+Button::make('Send mail')->action(SendConfirmationMail::class)
+```
+
+If for some reason the Model for the action is not resolved correctly you can use `modelForAction` to correct it.
+
 
 ### Events
 
@@ -200,20 +212,11 @@ The defaults are defined in the [config file](https://github.com/sietse85/nova-b
 You can also choose to navigate to any Nova route:
 
 ```php
-Button::make('Text')->route('vuejs-route-name', ['id' => 1])
 Button::make('Text')->index(App\Nova\User::class)
 Button::make('Text')->detail(App\Nova\User::class, $this->user_id)
 Button::make('Text')->create(App\Nova\User::class)
 Button::make('Text')->edit(App\Nova\User::class, $this->user_id)
 Button::make('Text')->lens(App\Nova\User::class, 'users-without-confirmation')
-```
-
-You can also set query parameters:
-
-```php
-Button::make('Text')
-    ->route('home')
-    ->withParams(['referrer' => 'nova'])
 ```
 
 It's also possible to use a resource's filters:

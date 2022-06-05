@@ -20,6 +20,8 @@ class Button extends Field
 
     public ?string $key = null;
 
+    public ?string $model = null;
+
     public array $config = [];
 
     public ?string $style = null;
@@ -41,6 +43,8 @@ class Button extends Field
     public bool $reload = false;
 
     public string $event = ButtonClick::class;
+
+    public ?string $action = null;
 
     public $visible = true;
 
@@ -139,6 +143,7 @@ class Button extends Field
     {
         parent::resolve($resource, $attribute);
 
+        $this->model = $resource::class;
         $this->classes[] = 'nova-button-' . strtolower(class_basename($resource));
         $this->classes[] = Arr::get($this->config, "styles.$this->style");
         $this->loadingClasses = Arr::get($this->config, "styles.$this->loadingStyle");
@@ -147,8 +152,10 @@ class Button extends Field
 
         $this->withMeta([
             'text' => $this->text,
+            'action' => $this->action,
             'key' => $this->key,
             'loadingText' => $this->loadingText,
+            'model' => $this->model,
             'successText' => $this->successText,
             'errorText' => $this->errorText,
             'confirm' => $this->confirm,
@@ -194,6 +201,32 @@ class Button extends Field
             $this->confirm['title'] = $message1;
             $this->confirm['body'] = $message2;
         }
+
+        return $this;
+    }
+
+    /**
+     * Set the model class on which to trigger the action, use fully qualified name
+     *
+     * @param string|null $model
+     * @return Button
+     */
+    public function modelForAction(?string $model): self
+    {
+        $this->model = $model;
+
+        return $this;
+    }
+
+    /**
+     * Set an action to trigger
+     *
+     * @param string|null $action
+     * @return Button
+     */
+    public function action(?string $action): self
+    {
+        $this->action = $action;
 
         return $this;
     }
