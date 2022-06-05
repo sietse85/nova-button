@@ -32,7 +32,6 @@ import {queue} from '../queue.js';
 export default {
   props: ['resource', 'resourceName', 'resourceId', 'field', 'ajaxClasses', 'disabled'],
   data: () => ({
-    toasted: require('vue-toasted').default,
     buttonWidth: null,
     loading: false,
     success: false,
