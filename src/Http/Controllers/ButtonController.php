@@ -17,7 +17,7 @@ class ButtonController extends Controller
      * @param NovaRequest $request
      * @return Response|Application|ResponseFactory
      */
-    public function handle(NovaRequest $request): Response|Application|ResponseFactory
+    public function handle(NovaRequest $request)
     {
         $event = $request->get('event');
         $resource = $request->findModelQuery()->firstOrFail();
