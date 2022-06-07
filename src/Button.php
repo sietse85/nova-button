@@ -143,7 +143,7 @@ class Button extends Field
     {
         parent::resolve($resource, $attribute);
 
-        $this->model = $resource::class;
+        $this->model = get_class($resource);
         $this->classes[] = 'nova-button-' . strtolower(class_basename($resource));
         $this->classes[] = Arr::get($this->config, "styles.$this->style");
         $this->loadingClasses = Arr::get($this->config, "styles.$this->loadingStyle");
