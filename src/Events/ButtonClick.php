@@ -10,7 +10,7 @@ class ButtonClick
 
     public string $resource;
 
-    public string $key;
+    public ?string $key;
 
     public function __construct(string $resource, ?string $key)
     {
