@@ -911,6 +911,15 @@
   resolved "https://registry.npmjs.org/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
+"@inertiajs/inertia@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@inertiajs/inertia/-/inertia-0.11.0.tgz#873ec1283ad4db33b87b4c0e3011c2e5fc3e6cc1"
+  integrity sha512-QF4hctgFC+B/t/WClCwfOla+WoDE9iTltQJ0u+DCfjl0KdGoCvIxYiNtuH8h8oM+RQMb8orjbpW3pHapjYI5Vw==
+  dependencies:
+    axios "^0.21.1"
+    deepmerge "^4.0.0"
+    qs "^6.9.0"
+
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
   resolved "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.1.1.tgz"
@@ -1618,6 +1627,13 @@ autoprefixer@^10.4.0:
   dependencies:
     follow-redirects "^1.14.9"
     form-data "^4.0.0"
+
+axios@^0.21.1:
+  version "0.21.4"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.4.tgz#c67b90dc0568e5c1cf2b0b858c43ba28e2eda575"
+  integrity sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
+  dependencies:
+    follow-redirects "^1.14.0"
 
 babel-loader@^8.2.3:
   version "8.2.5"
@@ -2344,6 +2360,11 @@ debug@^4.1.0, debug@^4.1.1, debug@^4.3.2:
   dependencies:
     ms "2.1.2"
 
+deepmerge@^4.0.0:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
+  integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
+
 default-gateway@^6.0.3:
   version "6.0.3"
   resolved "https://registry.npmjs.org/default-gateway/-/default-gateway-6.0.3.tgz"
@@ -2830,6 +2851,11 @@ follow-redirects@^1.0.0, follow-redirects@^1.14.9:
   version "1.15.0"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.0.tgz"
   integrity sha512-aExlJShTV4qOUOL7yF1U5tvLCB0xQuudbf6toyYA0E/acBNw71mvjFTnLaRp50aQaYocMR0a/RMMBIHeZnGyjQ==
+
+follow-redirects@^1.14.0:
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.1.tgz#0ca6a452306c9b276e4d3127483e29575e207ad5"
+  integrity sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==
 
 form-backend-validation@^2.3.3:
   version "2.4.0"
@@ -4397,6 +4423,13 @@ qs@6.10.3:
   version "6.10.3"
   resolved "https://registry.npmjs.org/qs/-/qs-6.10.3.tgz"
   integrity sha512-wr7M2E0OFRfIfJZjKGieI8lBKb7fRCH4Fv5KNPEs7gJ8jadvotdsS08PzOKR7opXhZ/Xkjtt3WF9g38drmyRqQ==
+  dependencies:
+    side-channel "^1.0.4"
+
+qs@^6.9.0:
+  version "6.10.5"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.10.5.tgz#974715920a80ff6a262264acd2c7e6c2a53282b4"
+  integrity sha512-O5RlPh0VFtR78y79rgcgKK4wbAI0C5zGVLztOIdpWX6ep368q5Hv6XRxDvXuZ9q3C6v+e3n8UfZZJw7IIG27eQ==
   dependencies:
     side-channel "^1.0.4"
 

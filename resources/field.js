@@ -1,3 +1,4 @@
+import { Inertia } from '@inertiajs/inertia';
 import { queue } from './js/queue';
 
 export default {
@@ -10,7 +11,7 @@ export default {
     reload() {
       if (this.field.reload && queue.allowsReload()) {
         window.setTimeout(() => {
-          this.$router.go();
+          Inertia.reload()
         }, 200);
       }
     },
