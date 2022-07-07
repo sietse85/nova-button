@@ -27,6 +27,7 @@
 </style>
 
 <script>
+import {Inertia} from '@inertiajs/inertia';
 import {queue} from '../queue.js';
 
 export default {
@@ -48,37 +49,38 @@ export default {
         return;
       }
 
-      queue.add(this.resourceId);
+      if (!this.navigate()) {
 
-      this.$emit('clicked');
+        queue.add(this.resourceId);
+        this.$emit('clicked');
 
-      try {
-        if (this.field.action === null) {
-          await this.post();
-        } else {
-          await this.action();
+        try {
+          if (this.field.action === null) {
+            await this.post();
+          } else {
+            await this.action();
+          }
+
+          this.success = true;
+          this.loading = false;
+
+          queue.hasSuccess = true;
+          queue.remove(this.resourceId);
+
+          this.$emit('success');
+          this.$emit('finished');
+
+        } catch (error) {
+          this.error = true;
+          this.loading = false;
+
+          queue.hasError = true;
+
+          queue.remove(this.resourceId);
+
+          this.$emit('error');
+          this.$emit('finished');
         }
-
-        this.success = true;
-        this.loading = false;
-
-        queue.hasSuccess = true;
-        queue.remove(this.resourceId);
-
-        this.$emit('success');
-        this.$emit('finished');
-
-        this.navigate();
-      } catch (error) {
-        this.error = true;
-        this.loading = false;
-
-        queue.hasError = true;
-
-        queue.remove(this.resourceId);
-
-        this.$emit('error');
-        this.$emit('finished');
       }
     },
     action() {
@@ -126,12 +128,29 @@ export default {
     },
     navigate() {
       if (this.field.type === 'route') {
-        this.$router.push(this.field.route);
+        const r = this.field.route;
+        const base = `${Nova.appConfig.base}/resources/`;
+        if (r.name === 'lens') {
+          Inertia.visit(`${base}${r.params.resourceName}/${r.name}/${r.params.lens}`);
+        } else if (r.name === 'index') {
+          Inertia.visit(`${base}${r.params.resourceName}/`);
+        } else if (r.name === 'edit') {
+          Inertia.visit(`${base}${r.params.resourceName}/${r.params.resourceId}/edit`);
+        } else if (r.name === 'detail') {
+          Inertia.visit(`${base}${r.params.resourceName}/${r.params.resourceId}/`);
+        } else {
+          Inertia.visit(`${base}${r.params.resourceName}/new/`);
+        }
+
+        return true;
       }
 
       if (this.field.type === 'link') {
         window.open(this.field.link.href, this.field.link.target);
+        return true;
       }
+
+      return false;
     },
   },
   computed: {
