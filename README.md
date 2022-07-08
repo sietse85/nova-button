@@ -255,10 +255,10 @@ You can also add more classes to a button:
 
 ```php
 // One class
-Button::make('Notify')->classes('some-class')
+Button::make('Notify')->classes(['some-class'])
 
 // Or multiple classes
-Button::make('Notify')->classes('some-class', 'another-class')
+Button::make('Notify')->classes(['some-class', 'another-class'])
 ```
 
 ### Styles
