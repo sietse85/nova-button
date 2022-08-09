@@ -546,7 +546,7 @@ class Button extends Field
      * @param array $params
      * @return $this
      */
-    protected function route(string $name, array $params = []): self
+    public function route(string $name, array $params = []): self
     {
         $this->type = 'route';
         $this->route = [
