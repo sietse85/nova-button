@@ -106,9 +106,17 @@ export default {
         const data = response.data;
         if (data.hasOwnProperty('message')) {
           Nova.$toasted.success(response.data.message);
-        } else if (data.hasOwnProperty('danger')) {
+        }
+        if (data.hasOwnProperty('danger')) {
           Nova.$toasted.error(response.data.danger);
         }
+        if (data.hasOwnProperty('openInNewTab')) {
+          window.open(data.openInNewTab, '_blank');
+        }
+        if (data.hasOwnProperty('redirect')) {
+          window.open(data.redirect, '_self');
+        }
+        return response;
       });
     },
     post() {
