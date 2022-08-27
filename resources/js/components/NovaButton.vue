@@ -49,38 +49,39 @@ export default {
         return;
       }
 
-      if (!this.navigate()) {
+      if (this.navigate()) {
+        return;
+      }
 
-        queue.add(this.resourceId);
-        this.$emit('clicked');
+      queue.add(this.resourceId);
+      this.$emit('clicked');
 
-        try {
-          if (this.field.action === null) {
-            await this.post();
-          } else {
-            await this.action();
-          }
-
-          this.success = true;
-          this.loading = false;
-
-          queue.hasSuccess = true;
-          queue.remove(this.resourceId);
-
-          this.$emit('success');
-          this.$emit('finished');
-
-        } catch (error) {
-          this.error = true;
-          this.loading = false;
-
-          queue.hasError = true;
-
-          queue.remove(this.resourceId);
-
-          this.$emit('error');
-          this.$emit('finished');
+      try {
+        if (this.field.action === null) {
+          await this.post();
+        } else {
+          await this.action();
         }
+
+        this.success = true;
+        this.loading = false;
+
+        queue.hasSuccess = true;
+        queue.remove(this.resourceId);
+
+        this.$emit('success');
+        this.$emit('finished');
+
+      } catch (error) {
+        this.error = true;
+        this.loading = false;
+
+        queue.hasError = true;
+
+        queue.remove(this.resourceId);
+
+        this.$emit('error');
+        this.$emit('finished');
       }
     },
     action() {
