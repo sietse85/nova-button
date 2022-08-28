@@ -45,11 +45,7 @@ export default {
   },
   methods: {
     async handleClick() {
-      if (this.field.disabled) {
-        return;
-      }
-
-      if (this.navigate()) {
+      if (this.field.disabled || this.navigate()) {
         return;
       }
 
