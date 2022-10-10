@@ -51,7 +51,7 @@ class FieldServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../config/' => config_path(),
-            ], 'config');
+            ], 'nova-button-config');
         }
 
         $this->mergeConfigFrom(__DIR__ . '/../config/nova-button.php', 'nova-button');
