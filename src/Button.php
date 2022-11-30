@@ -362,6 +362,19 @@ class Button extends Field
     }
 
     /**
+     * Set the index alignment to the right.
+     *
+     * @param Closure|bool $enabled
+     * @return $this
+     */
+    public function indexAlignRight($enabled = true): self
+    {
+        $this->indexAlign = value($enabled) ? 'right' : 'left';
+
+        return $this;
+    }
+
+    /**
      * Set the classes.
      *
      * @param ...$classes
