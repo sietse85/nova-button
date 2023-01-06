@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     async handleClick() {
-      if (this.field.disabled || this.navigate()) {
+      if (this.field.disabled) {
         return;
       }
 
@@ -68,6 +68,7 @@ export default {
         this.$emit('success');
         this.$emit('finished');
 
+        this.navigate();
       } catch (error) {
         this.error = true;
         this.loading = false;
