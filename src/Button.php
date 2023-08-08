@@ -475,10 +475,10 @@ class Button extends Field
      * Set the detail route.
      *
      * @param string $namespace
-     * @param int $id
+     * @param int|string $id
      * @return $this
      */
-    public function detail(string $namespace, int $id): self
+    public function detail(string $namespace, int|string $id): self
     {
         $this->route('detail', [
             'resourceName' => $this->normalizeResourceName($namespace),
@@ -507,10 +507,10 @@ class Button extends Field
      * Set the edit route.
      *
      * @param string $namespace
-     * @param int $id
+     * @param int|string $id
      * @return $this
      */
-    public function edit(string $namespace, int $id): self
+    public function edit(string $namespace, int|string $id): self
     {
         $this->route('edit', [
             'resourceName' => $this->normalizeResourceName($namespace),
