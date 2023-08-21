@@ -31,6 +31,7 @@ class ButtonController extends Controller
      * Trigger action
      *
      * @param NovaRequest $request
+     * @return mixed
      */
     public function triggerAction(NovaRequest $request)
     {

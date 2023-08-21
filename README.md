@@ -261,6 +261,16 @@ Button::make('Notify')->classes(['some-class'])
 Button::make('Notify')->classes(['some-class', 'another-class'])
 ```
 
+You can also add more classes to the confirm-modal inner-div:
+
+```php
+// One class
+Button::make('Notify')->confirm('sure?')->modalClasses(['some-class'])
+
+// Or multiple classes
+Button::make('Notify')->confirm('sure?')->modalClasses(['some-class', 'another-class'])
+```
+
 ### Styles
 
 This package uses [tailwind-css](https://tailwindcss.com) classes. The default class used is the `link` class.

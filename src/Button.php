@@ -58,6 +58,8 @@ class Button extends Field
 
     public array $classes = [];
 
+    public array $modalClasses = [];
+
     public ?string $type = null;
 
     public ?array $route = null;
@@ -171,6 +173,7 @@ class Button extends Field
             'route' => $this->route,
             'link' => $this->link,
             'indexAlign' => $this->indexAlign,
+            'modalClasses' => $this->modalClasses,
             'loadingClasses' => $this->loadingClasses,
             'successClasses' => $this->successClasses,
             'errorClasses' => $this->errorClasses,
@@ -388,6 +391,19 @@ class Button extends Field
     }
 
     /**
+     * Set the classes.
+     *
+     * @param ...$classes
+     * @return $this
+     */
+    public function modalClasses(...$classes): self
+    {
+        $this->modalClasses = array_merge($this->modalClasses, ...$classes);
+
+        return $this;
+    }
+
+    /**
      * Unique css classes
      *
      * @return string
@@ -478,7 +494,7 @@ class Button extends Field
      * @param int|string $id
      * @return $this
      */
-    public function detail(string $namespace, int|string $id): self
+    public function detail(string $namespace, $id): self
     {
         $this->route('detail', [
             'resourceName' => $this->normalizeResourceName($namespace),
@@ -510,7 +526,7 @@ class Button extends Field
      * @param int|string $id
      * @return $this
      */
-    public function edit(string $namespace, int|string $id): self
+    public function edit(string $namespace, $id): self
     {
         $this->route('edit', [
             'resourceName' => $this->normalizeResourceName($namespace),

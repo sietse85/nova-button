@@ -1,8 +1,8 @@
 <template>
   <div class="modal" @click.prevent.stop="">
-    <div class="modal-inner">
+    <div class="modal-inner" :class="field.modalClasses.splice(' ')">
       <transition name="fade">
-        <form class="bg-white rounded-lg shadow-lg overflow-hidden" style="width: 460px">
+        <form class="rounded-lg shadow-lg overflow-hidden" style="width: 460px">
           <div class="p-8">
             <heading :level="2" class="mb-6" v-html="field.confirm.title"></heading>
             <p class="text-80 leading-normal" v-html="field.confirm.body"></p>
