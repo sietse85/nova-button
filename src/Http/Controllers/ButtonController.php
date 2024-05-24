@@ -38,7 +38,10 @@ class ButtonController extends Controller
         $actionClass = $request->get('actionClass');
         $resourceId = $request->get('resourceId');
         $model = $request->get('model');
-        $result = $model::find($resourceId);
+
+        $query = $model::query();
+        if ($query->hasMacro('withTrashed')) $query->withTrashed();
+        $result = $query->find($resourceId);
 
         $action = new $actionClass;
         $actionFields = new ActionFields(collect(), collect());
