@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Laravel\Nova\Fields\ActionFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ButtonController extends Controller
 {
@@ -20,7 +21,12 @@ class ButtonController extends Controller
     public function handle(NovaRequest $request)
     {
         $event = $request->get('event');
-        $resource = $request->findModelQuery()->firstOrFail();
+
+        try {
+            $resource = $request->findModelQuery()->first();
+        } catch (NotFoundHttpException $e) {
+            $resource = null;
+        }
 
         event(new $event($resource, $request->route('buttonKey')));
 
