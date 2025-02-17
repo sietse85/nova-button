@@ -22,7 +22,7 @@
         "nova4",
         "field"
     ],
-    "version": "1.0.27",
+    "version": "1.0.28",
     "license": "MIT",
     "require": {
         "php": "^7.4|^8.0",
